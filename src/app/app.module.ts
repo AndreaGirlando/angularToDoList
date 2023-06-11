@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { AppRoutingModule } from 'src/app-routing.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';

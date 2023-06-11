@@ -13,6 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "jszip","devexpress-diagram","devexpress-gantt","devextreme-quill"
+           ],
             "outputPath": "dist/to-do-list-project",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,7 +30,6 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/devextreme/dist/css/dx.light.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.js",
@@ -39,7 +41,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
