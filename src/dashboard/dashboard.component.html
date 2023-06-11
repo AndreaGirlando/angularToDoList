@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row mt-2 justify-content-between">
+
+    <div class="col-auto">
+      <h1 class="fs-1">Le tue note</h1>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-success fs-5 me-1 mb-2 mb-md-0" (click)="popupVisible=true">Aggiungi una nota<i class="ms-1 bi bi-file-earmark-plus"></i></button>
+      <button class="btn btn-danger fs-5" (click)="logout()">Logout <i class="ms-1 bi bi-box-arrow-left"></i> </button>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div *ngFor="let x of note;  let i=index" class="col-12 col-md-6">
+          <div class="bg-white shadow rounded mb-2 ">
+            <div class="container p-2">
+
+              <div class="d-flex justify-content-between" >
+                <div>
+                  <h1>Nota {{i+1}}</h1>
+                </div>
+                <div>
+                  <button class="btn btn-danger me-1 circle" (click)='eliminaNota(i)'><i class="bi bi-file-earmark-minus"></i></button>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <textarea class="form-control fs-4"  style="resize: vertical;"  aria-label="With textarea" disabled >{{x.nota}}</textarea>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<dx-popup [visible]="popupVisible" [title]="'Nuova nota'" (onHiding)="clear()" [width]="500" [height]="500">
+  <div class="input-group">
+    <textarea class="form-control fs-5" (keyup)="autoGrowTextZone($event)" style="resize: auto;" [(ngModel)]="newNota" aria-label="With textarea"></textarea>
+  </div>
+  <div>
+    <button class="btn btn-success" (click)="creaNota()" >Inserisci nota</button>
+  </div>
+</dx-popup>
+
+
+
