@@ -8,10 +8,12 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(username:string,password:string){
-    return this.http.post("https://todolistgirlando.somee.com/api/Auth/login",{username:username,password:password})
+    const headers = { 'content-type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
+    return this.http.post("https://todolistgirlando.somee.com/api/Auth/login",{username:username,password:password},{ 'headers': headers })
   }
   public register(username:string,password:string){
-    return this.http.post("https://todolistgirlando.somee.com/api/Auth/register",{username:username,password:password})
+    const headers = { 'content-type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
+    return this.http.post("https://todolistgirlando.somee.com/api/Auth/register",{username:username,password:password},{ 'headers': headers })
   }
   public getJwt(){
     if(this.isUserLoggedIn()){
