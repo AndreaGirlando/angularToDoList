@@ -8,10 +8,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(username:string,password:string){
-    return this.http.post("http://todolistgirlando.somee.com/api/Auth/login",{username:username,password:password})
+    return this.http.post("https://todolistgirlando.somee.com/api/Auth/login",{username:username,password:password})
   }
   public register(username:string,password:string){
-    return this.http.post("http://todolistgirlando.somee.com/api/Auth/register",{username:username,password:password})
+    return this.http.post("https://todolistgirlando.somee.com/api/Auth/register",{username:username,password:password})
   }
   public getJwt(){
     if(this.isUserLoggedIn()){
