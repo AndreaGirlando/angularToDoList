@@ -1,0 +1,6 @@
+{
+"/api": {
+"target": "https://www.todolistgirlando.somee.com/",
+"secure": false
+}
+}
