@@ -15,7 +15,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
         if (this.authService.isUserLoggedIn()) {
           const token = this.authService.getJwt();
-          request = request.clone({setHeaders:{Authorization: `Bearer ${token}`}});
+          request = request.clone({setHeaders:{Authorization: `Bearer ${token}`,'Access-Control-Allow-Origin': '*'}});
         }
         return next.handle(request);
     }
