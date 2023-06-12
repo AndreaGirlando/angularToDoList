@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "proxyConfig": "src/proxy.conf.json",
+            
             "allowedCommonJsDependencies": [
               "jszip","devexpress-diagram","devexpress-gantt","devextreme-quill"
            ],
@@ -79,6 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "proxyConfig": "src/proxy.conf.json",
             "browserTarget": "ToDoListProject:build"
           }
         },
