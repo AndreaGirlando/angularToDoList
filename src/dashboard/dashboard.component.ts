@@ -9,6 +9,7 @@ import { confirm } from 'devextreme/ui/dialog';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent {
   constructor(private authService:AuthService,private router:Router,private noteService:NoteService){}
   note:any = [];
@@ -24,6 +25,9 @@ export class DashboardComponent {
   autoGrowTextZone(e:any) {
     e.target.style.height = "0px";
     e.target.style.height = (e.target.scrollHeight + 25)+"px";
+  }
+  public get windowSize(){
+    return window.screen.availWidth
   }
   public clear(){
     this.popupVisible=false
