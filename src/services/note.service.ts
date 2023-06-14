@@ -7,16 +7,17 @@ import { Injectable } from '@angular/core';
 export class NoteService {
 
   constructor(private http: HttpClient) { }
-
+  link:string = "https://todolistgirlando.somee.com/"
+  //link:string = "https://localhost:7234/"
 
   public creaNota(body:any){
-    return this.http.post("https://todolistgirlando.somee.com/api/Note/creaNota",body)
+    return this.http.post(this.link+"api/Note/creaNota",body)
   }
   public getNote(){
-    return this.http.get("https://todolistgirlando.somee.com/api/Note/getNoteByUserID")
+    return this.http.get(this.link+"api/Note/getNoteByUserID")
   }
   public removeNota(id:number){
-    return this.http.delete("https://todolistgirlando.somee.com/api/Note/cancellaNota?id="+id)
+    return this.http.delete(this.link+"api/Note/cancellaNota?id="+id)
   }
 
 }

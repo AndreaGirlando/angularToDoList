@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  //link:string = "https://todolistgirlando.somee.com/"
-  link:string = "https://localhost:7234"
+  link:string = "https://todolistgirlando.somee.com/"
+  //link:string = "https://localhost:7234/"
 
   public login(username:string,password:string){
     const headers = { 'content-type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
