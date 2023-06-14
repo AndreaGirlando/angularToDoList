@@ -42,7 +42,7 @@
 </div>
 
 
-<dx-popup [visible]="popupVisible" [title]="'Nuova nota'" (onHiding)="clear()" [width]="500" [height]="500" [fullScreen]="windowSize > 768">
+<dx-popup [visible]="popupVisible" [title]="'Nuova nota'" (onHiding)="clear()" [width]="500" [height]="500" [fullScreen]="windowSize < 768">
   <div class="input-group">
     <textarea class="form-control fs-5" (keyup)="autoGrowTextZone($event)" style="resize: auto;" [(ngModel)]="newNota" aria-label="With textarea"></textarea>
   </div>

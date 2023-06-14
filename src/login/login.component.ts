@@ -40,7 +40,7 @@ export class LoginComponent {
           this.route.navigateByUrl("/dashboard")
         },
         error: (err:any) =>{
-          alert( err, "Errore")
+          alert( err.errore.message, "Errore")
         },
       })
     }
