@@ -6,7 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  var link = "https://localhost:7234";
   public login(username:string,password:string){
     const headers = { 'content-type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
     return this.http.post("https://localhost:7234/api/Auth/login",{username:username,password:password},{ 'headers': headers })
