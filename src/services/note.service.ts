@@ -13,6 +13,9 @@ export class NoteService {
   public creaNota(body:any){
     return this.http.post(this.link+"api/Note/creaNota",body)
   }
+  public modificaNota(body:any){
+    return this.http.post(this.link+"api/Note/modificaNota",body)
+  }
   public getNote(){
     return this.http.get(this.link+"api/Note/getNoteByUserID")
   }

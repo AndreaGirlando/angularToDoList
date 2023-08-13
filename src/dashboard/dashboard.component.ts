@@ -15,6 +15,7 @@ export class DashboardComponent {
   note:any = [];
   popupVisible:boolean = false;
   newNota:string = ""
+  UpdateNotaID:number = 0;
   public logout(){
     this.authService.logout();
     this.router.navigate(['']);
@@ -44,6 +45,12 @@ export class DashboardComponent {
         this.clear();
       }
     })
+  }
+  public OpenModificaNota=(e:any)=>{
+    console.log(e)
+    this.UpdateNotaID = e.noteID
+    this.newNota = e.nota
+    this.popupVisible = true
   }
   public getNote(){
     this.noteService.getNote().subscribe({
