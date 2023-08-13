@@ -32,6 +32,15 @@ export class DashboardComponent {
   }
   public clear(){
     this.popupVisible=false
+    this.newNota = ""
+    this.UpdateNotaID = 0
+  }
+  editOrNew(){
+    if(this.UpdateNotaID == 0){
+      this.creaNota()
+    }else{
+      this.modificaNota()
+    }
   }
   public creaNota(){
     var body = {
@@ -46,8 +55,21 @@ export class DashboardComponent {
       }
     })
   }
+  public modificaNota(){
+    var userID = localStorage.getItem("UserID")
+    var body = {
+      "noteID": this.UpdateNotaID,
+      "nota": this.newNota,
+      "userID": userID?.toString()
+    }
+    this.noteService.modificaNota(body).subscribe({
+      next: (data:any) =>{
+        this.getNote();
+        this.clear();
+      }
+    })
+  }
   public OpenModificaNota=(e:any)=>{
-    console.log(e)
     this.UpdateNotaID = e.noteID
     this.newNota = e.nota
     this.popupVisible = true
@@ -56,7 +78,7 @@ export class DashboardComponent {
     this.noteService.getNote().subscribe({
       next: (data:any) =>{
         this.note = data.note
-        console.log(this.note);
+        //console.log(this.note);
       }
     })
   }

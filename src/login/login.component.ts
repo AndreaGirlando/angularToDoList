@@ -36,7 +36,7 @@ export class LoginComponent {
     if(this.route.url === '/login'){
       this.authService.login(this.form.value.Username,this.form.value.Password).subscribe({
         next: (data:any) =>{
-          this.authService.setJwtToken(data.jwtToken)
+          this.authService.setItems(data.jwtToken,data.userID)
           this.route.navigateByUrl("/dashboard")
         },
         error: (err:any) =>{
