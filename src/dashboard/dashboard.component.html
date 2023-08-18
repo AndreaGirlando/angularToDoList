@@ -7,6 +7,7 @@
     <div class="col-auto">
       <button class="btn btn-success fs-5 me-1 mb-2 mb-md-0" (click)="popupVisible=true">Aggiungi una nota<i class="ms-1 bi bi-file-earmark-plus"></i></button>
       <button class="btn btn-danger fs-5" (click)="logout()">Logout <i class="ms-1 bi bi-box-arrow-left"></i> </button>
+      <button class="btn btn-info fs-5 ms-1 text-white" *ngIf="authService.UserID() == '40'" (click)="OpenLottoPopup()">Lotto</button>
     </div>
 
     <div class="container">
@@ -50,6 +51,87 @@
   <div>
     <button class="btn btn-success mt-2" (click)="editOrNew()">Inserisci nota</button>
   </div>
+</dx-popup>
+
+
+<dx-popup [visible]="lottoPopup" [title]="'Lotto'" [width]="500" [height]="500" [fullScreen]="windowSize < 768">
+  <div class="container">
+    <div class="row d-flex justify-content-between">
+      <div class="col-6 text-start">
+        <span class="fs-5 fw-bold d-flex">SuperEnalotto: {{lotto.se}}</span>
+        <span class="fs-5 fw-bold">Super Star: {{lotto.ss}}</span>
+      </div>
+      <div class="col-6 text-end">
+        <button (click)="getLottoNumbers()" *ngIf="false" class="btn btn-primary text-end" ><i class="bi bi-arrow-repeat"></i></button>
+      </div>
+    </div>
+    <hr>
+    <div class="row mt-3">
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.primo">
+          <label for="floatingInput">Primo</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.secondo">
+          <label for="floatingInput">Secondo</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.terzo">
+          <label for="floatingInput">Terzo</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.quarto">
+          <label for="floatingInput">Quarto</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.quinto">
+          <label for="floatingInput">Quinto</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.sesto">
+          <label for="floatingInput">Sesto</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.data">
+          <label for="floatingInput">Data di estrazione</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.jolly">
+          <label for="floatingInput">Jolly</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="newRecord.superStar">
+          <label for="floatingInput">Super star</label>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="newRecordLotto()" class="btn btn-primary text-end" >Invia dati<i class="ms-1 bi bi-arrow-up-right-square"></i></button>
+  </div>
+
 </dx-popup>
 
 

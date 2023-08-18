@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 import { confirm } from 'devextreme/ui/dialog';
+import { LottoService } from 'src/services/lotto.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +12,10 @@ import { confirm } from 'devextreme/ui/dialog';
 })
 
 export class DashboardComponent {
-  constructor(private authService:AuthService,private router:Router,private noteService:NoteService){}
+  constructor(public authService:AuthService,private router:Router,private noteService:NoteService,private lottoService:LottoService){}
   note:any = [];
+  lotto:any = [];
+  newRecord:any = [];
   popupVisible:boolean = false;
   newNota:string = ""
   UpdateNotaID:number = 0;
@@ -94,5 +97,31 @@ export class DashboardComponent {
     }
 
   }
+
+  lottoPopup:boolean = false
+  OpenLottoPopup(){
+    this.lottoPopup = true
+    this.getLottoNumbers()
+  }
+
+  getLottoNumbers(){
+    this.lottoService.getBestNumbers().subscribe({
+      next: (data:any) =>{
+        this.lotto = data.data
+        //console.log(this.lotto)
+      }
+    })
+  }
+
+  newRecordLotto(){
+    console.log(this.newRecord)
+    this.lottoService.creaRecord({...this.newRecord}).subscribe({
+      next: (data:any) =>{
+        this.getLottoNumbers();
+      }
+    })
+  }
+
+
 
 }

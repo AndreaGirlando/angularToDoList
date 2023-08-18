@@ -13,6 +13,10 @@ export class AuthService {
   private username:string = ""
   private password:string = ""
 
+  public UserID(){
+    return localStorage.getItem("UserID")
+  }
+
   public login(username:string,password:string){
     const headers = { 'content-type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
     this.username = username
