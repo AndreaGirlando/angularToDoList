@@ -117,6 +117,7 @@ export class DashboardComponent {
     console.log(this.newRecord)
     this.lottoService.creaRecord({...this.newRecord}).subscribe({
       next: (data:any) =>{
+        this.newRecord = []
         this.getLottoNumbers();
       }
     })
